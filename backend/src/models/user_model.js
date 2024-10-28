@@ -29,4 +29,4 @@ const userSchema = new mongoose.Schema({
     chats: [chatSchema]
 })
 
-export default mongoose.model("users",userSchema)
+module.exports= mongoose.model("users",userSchema)

@@ -18,3 +18,25 @@ const user_model = require("../models/user_model")
     }
 }
 
+
+exports.addUser = async(req,res,next)=>{
+    try {
+        const newUser= new user_model({
+            name: req.params.name,
+            email: req.params.email,
+            password: req.params.password
+        })
+        const adduser= await newUser.save()
+
+        res.status(202).json({
+            message: "user added",
+            adduser
+        })
+    } catch (error) {
+        console.log(error);
+
+        res.status(400).json({
+            message: error
+        })
+    }
+}

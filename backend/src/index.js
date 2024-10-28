@@ -23,10 +23,10 @@ app.use("/api",router)
 
 
 
-app.get("/",(req,res)=>{
-    res.status(200).json({
-        message: "hello",
-        status: 100
+app.all("*",(req,res)=>{
+    res.status(404).json({
+        message: "API not found",
+        status: "not success"
     })
 })
 

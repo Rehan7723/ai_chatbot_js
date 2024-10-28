@@ -1,14 +1,11 @@
 const express = require("express")
+const user_router = require("./router_users")
 
 
 
 const router = express.Router()
 
-router.get("/users",(req,res)=>{
-    res.status(200).json({
-        message: "router working"
-    })
-})
+router.use("/users",user_router)//  :api/users/
 
 
 module.exports = router

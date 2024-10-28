@@ -1,10 +1,13 @@
 const express = require("express")
-const {getAllusers} = require("../controllers/c_users")
+const {getAllusers,
+       addUser
+} = require("../controllers/c_users")
 
-const router = express.Router()
+const user_router = express.Router()
 
 
-router.use("/",getAllusers)
+user_router.get("/",getAllusers)
+user_router.post("/:name/:email/:password",addUser)
 
 
-module.exports= router
+module.exports= user_router
